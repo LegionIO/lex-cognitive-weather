@@ -25,7 +25,7 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Helpers::WeatherEngine do
     end
 
     it 'returns nil when MAX_FRONTS is reached' do
-      allow(engine).to receive(:fronts).and_return(Array.new(100))
+      engine.instance_variable_set(:@fronts, Array.new(100))
       result = engine.create_front(front_type: :warm, domain: 'x')
       expect(result).to be_nil
     end
@@ -59,7 +59,7 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Helpers::WeatherEngine do
     end
 
     it 'returns nil when MAX_STORMS is reached' do
-      allow(engine).to receive(:storms).and_return(Array.new(50))
+      engine.instance_variable_set(:@storms, Array.new(50))
       result = engine.brew_storm(front_id: front.id)
       expect(result).to be_nil
     end
