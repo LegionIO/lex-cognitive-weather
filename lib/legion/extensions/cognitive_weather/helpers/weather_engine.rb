@@ -33,10 +33,10 @@ module Legion
             return nil unless find_front(front_id)
 
             storm = Storm.new(
-              condition:  condition,
-              front_ids:  [front_id],
-              intensity:  intensity,
-              coverage:   coverage
+              condition: condition,
+              front_ids: [front_id],
+              intensity: intensity,
+              coverage:  coverage
             )
             @storms << storm
             storm
@@ -61,12 +61,12 @@ module Legion
           def weather_forecast
             if @storms.empty?
               return {
-                condition:         :clear,
-                avg_intensity:     0.0,
-                active_storms:     0,
-                dominant_front:    nil,
-                clarity_label:     'crystal',
-                severity_label:    'calm'
+                condition:      :clear,
+                avg_intensity:  0.0,
+                active_storms:  0,
+                dominant_front: nil,
+                clarity_label:  'crystal',
+                severity_label: 'calm'
               }
             end
 
@@ -101,13 +101,13 @@ module Legion
           # Full atmospheric report
           def atmospheric_report
             {
-              front_count:  @fronts.size,
-              storm_count:  @storms.size,
-              fronts:       @fronts.map(&:to_h),
-              storms:       @storms.map(&:to_h),
-              forecast:     weather_forecast,
-              most_severe:  most_severe&.to_h,
-              calmest:      calmest&.to_h
+              front_count: @fronts.size,
+              storm_count: @storms.size,
+              fronts:      @fronts.map(&:to_h),
+              storms:      @storms.map(&:to_h),
+              forecast:    weather_forecast,
+              most_severe: most_severe&.to_h,
+              calmest:     calmest&.to_h
             }
           end
 

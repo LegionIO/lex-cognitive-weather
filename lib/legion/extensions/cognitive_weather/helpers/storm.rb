@@ -36,7 +36,7 @@ module Legion
 
           # A lightning strike of sudden insight — random intensity, logged for audit
           def lightning_strike!(domain: nil)
-            insight_id       = SecureRandom.uuid
+            insight_id = SecureRandom.uuid
             insight_intensity = rand.round(10)
             entry = {
               id:        insight_id,
@@ -63,16 +63,16 @@ module Legion
 
           def to_h
             {
-              id:          @id,
-              condition:   @condition,
-              front_ids:   @front_ids,
-              intensity:   @intensity.round(10),
-              coverage:    @coverage.round(10),
-              raging:      raging?,
-              clearing:    clearing?,
-              clarity:     clarity_label,
+              id:            @id,
+              condition:     @condition,
+              front_ids:     @front_ids,
+              intensity:     @intensity.round(10),
+              coverage:      @coverage.round(10),
+              raging:        raging?,
+              clearing:      clearing?,
+              clarity:       clarity_label,
               insight_count: @insight_log.size,
-              created_at:  @created_at.iso8601
+              created_at:    @created_at.iso8601
             }
           end
         end

@@ -17,8 +17,8 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Helpers::Storm do
     end
 
     it 'accepts front_ids' do
-      s = described_class.new(condition: :foggy, front_ids: ['abc', 'def'])
-      expect(s.front_ids).to eq(['abc', 'def'])
+      s = described_class.new(condition: :foggy, front_ids: %w[abc def])
+      expect(s.front_ids).to eq(%w[abc def])
     end
 
     it 'defaults intensity to 0.5' do
@@ -168,7 +168,7 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Helpers::Storm do
     it 'includes all expected keys' do
       h = storm.to_h
       expect(h.keys).to include(:id, :condition, :front_ids, :intensity, :coverage,
-                                 :raging, :clearing, :clarity, :insight_count, :created_at)
+                                :raging, :clearing, :clarity, :insight_count, :created_at)
     end
 
     it 'rounds intensity to 10 decimal places' do

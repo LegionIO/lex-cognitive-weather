@@ -46,7 +46,7 @@ module Legion
                                     "intensity=#{intensity} front=#{front_id}"
               { success: true, storm: storm.to_h }
             else
-              Legion::Logging.warn "[cognitive_weather] brew_storm: front not found or MAX_STORMS reached"
+              Legion::Logging.warn '[cognitive_weather] brew_storm: front not found or MAX_STORMS reached'
               { success: false, reason: :brew_failed }
             end
           rescue ArgumentError => e

@@ -146,7 +146,7 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Helpers::Front do
     it 'includes all expected keys' do
       h = front.to_h
       expect(h.keys).to include(:id, :front_type, :domain, :pressure, :temperature,
-                                 :humidity, :high_pressure, :low_pressure, :severity, :created_at)
+                                :humidity, :high_pressure, :low_pressure, :severity, :created_at)
     end
 
     it 'rounds pressure to 10 decimal places' do

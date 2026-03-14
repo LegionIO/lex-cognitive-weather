@@ -46,16 +46,16 @@ module Legion
 
           def to_h
             {
-              id:          @id,
-              front_type:  @front_type,
-              domain:      @domain,
-              pressure:    @pressure.round(10),
-              temperature: @temperature.round(10),
-              humidity:    @humidity.round(10),
+              id:            @id,
+              front_type:    @front_type,
+              domain:        @domain,
+              pressure:      @pressure.round(10),
+              temperature:   @temperature.round(10),
+              humidity:      @humidity.round(10),
               high_pressure: high_pressure?,
               low_pressure:  low_pressure?,
-              severity:    severity_label,
-              created_at:  @created_at.iso8601
+              severity:      severity_label,
+              created_at:    @created_at.iso8601
             }
           end
         end

@@ -23,8 +23,8 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Runners::CognitiveWeather d
 
     it 'accepts pressure, temperature, humidity' do
       result = described_class.create_front(front_type: :warm, domain: 'x',
-                                             pressure: 0.7, temperature: 0.4, humidity: 0.6,
-                                             engine: engine)
+                                            pressure: 0.7, temperature: 0.4, humidity: 0.6,
+                                            engine: engine)
       expect(result[:front][:pressure]).to eq(0.7)
     end
 
@@ -66,7 +66,7 @@ RSpec.describe Legion::Extensions::CognitiveWeather::Runners::CognitiveWeather d
 
     it 'passes intensity and coverage' do
       result = described_class.brew_storm(front_id: front[:id], intensity: 0.8,
-                                           coverage: 0.6, engine: engine)
+                                          coverage: 0.6, engine: engine)
       expect(result[:storm][:intensity]).to be_within(0.001).of(0.8)
     end
   end
